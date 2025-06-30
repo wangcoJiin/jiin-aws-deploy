@@ -27,6 +27,9 @@ FROM eclipse-temurin:17-jre-alpine
 # 작업 디렉토리 설정
 WORKDIR /app
 
+# Alpine Linux에 CURL 명령어 설치
+RUN apk add --no-cache curl
+
 # 빌드된 JAR 파일 복사
 COPY --from=builder /app/build/libs/*.jar app.jar
 
